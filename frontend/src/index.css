@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-text-dark font-sans overflow-x-hidden;
+    background-color: #ecf0d0;
+    background-image: 
+      repeating-linear-gradient(
+        90deg,
+        rgba(247, 221, 164, 0.6),
+        rgba(247, 221, 164, 0.6) 40px,
+        transparent 40px,
+        transparent 50px,
+        rgba(247, 221, 164, 0.6) 50px,
+        rgba(247, 221, 164, 0.6) 54px,
+        transparent 54px,
+        transparent 60px,
+        rgba(247, 221, 164, 0.6) 60px,
+        rgba(247, 221, 164, 0.6) 64px,
+        transparent 64px,
+        transparent 100px
+      ),
+      repeating-linear-gradient(
+        180deg,
+        rgba(247, 221, 164, 0.6),
+        rgba(247, 221, 164, 0.6) 40px,
+        transparent 40px,
+        transparent 50px,
+        rgba(247, 221, 164, 0.6) 50px,
+        rgba(247, 221, 164, 0.6) 54px,
+        transparent 54px,
+        transparent 60px,
+        rgba(247, 221, 164, 0.6) 60px,
+        rgba(247, 221, 164, 0.6) 64px,
+        transparent 64px,
+        transparent 100px
+      );
+    background-attachment: fixed;
+  }
+}
+
+/* Custom styles for cute scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #d1d5db; /* Light grey */
+  border-radius: 10px;
+}
+
+@layer utilities {
+  .card-base {
+    border-radius: 28px;
+    background: white;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.04);
+  }
+  .card-shadow {
+    box-shadow: 0 10px 35px rgba(0,0,0,0.04);
+  }
+  .btn-glow-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: inherit;
+    z-index: 10;
+  }
+  .btn-glow-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    z-index: -1;
+    border-radius: inherit;
+    filter: blur(8px);
+    opacity: 0.6;
+    transition: opacity 0.3s ease, filter 0.3s ease;
+  }
+  .btn-glow-wrapper:hover::before {
+    opacity: 0.9;
+    filter: blur(12px);
+  }
+
+  .glow-yellow::before { background: #f7dda4; }
+  .glow-lavender::before { background: #dbc9ea; }
+  .glow-pink::before { background: #fabbe8; }
+  .glow-mint::before { background: #86c9b6; }
+}
